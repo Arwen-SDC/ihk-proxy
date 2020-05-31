@@ -43,7 +43,7 @@ app.use(express.json());
 //   })
 //     .then(() => { res.status(200).send(); })
 //     .catch(() => { res.status(404).end(); });
-// });
+// }); process.env.NR_PASS,
 
 // app.get('/cartapi/:gameId', (req, res) => {
 //   axios({
@@ -53,9 +53,9 @@ app.use(express.json());
 //     .catch(() => { res.status(404).end(); });
 // });
 
-app.get('/api/games/:gameId', (req, res) => {
+app.get('/reviews/:gameId', (req, res) => {
   axios({
-    baseURL: `http://localhost:3004/api/games/${req.params.gameId}`
+    baseURL: `http://localhost:3002/reviews/${req.params.gameId}`
   })
     .then((data) => { res.status(200).send(data.data); })
     .catch(() => { res.status(404).end(); });

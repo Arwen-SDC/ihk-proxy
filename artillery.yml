@@ -6,7 +6,7 @@ config:
       - duration: 10
         arrivalRate: 1
         maxVusers: 1000
-        name: "warmup"
+        name: "1 user"
 
       - pause: 30
 
@@ -35,11 +35,11 @@ scenarios:
     flow:
     - function: "rng"
     - get:
-        url: "/games/{{id}}"
+        url: "/games/{{gameid}}"
 
   - name: "Testing POST REQ"
     weight: 10
     flow:
     - function: "rng"
     - post:
-        url: "/addGame/{{id}}"
+        url: "/addGame/{{gameid}}"

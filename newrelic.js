@@ -1,6 +1,5 @@
-const key = require('./key.js');
-
 'use strict'
+require('dotenv').config();
 /**
  * New Relic agent configuration.
  *
@@ -11,11 +10,11 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: ['My Proxy-Application'],
+  app_name: ['Imran Proxy Application'],
   /**
    * Your New Relic license key.
    */
-  license_key: key.key,
+  license_key: process.env.NR_PASS,
   logging: {
     /**
      * Level at which to log. 'trace' is most useful to New Relic when diagnosing
