@@ -53,9 +53,18 @@ app.use(express.json());
 //     .catch(() => { res.status(404).end(); });
 // });
 
+app.get('/api/games/:gameId', (req, res) => {
+  axios({
+    baseURL: `http://54.67.69.54:3004/api/games/${req.params.gameId}`
+  })
+    .then((data) => { res.status(200).send(data.data); })
+    .catch(() => { res.status(404).end(); });
+});
+
 app.get('/reviews/:gameId', (req, res) => {
   axios({
-    baseURL: `http://localhost:3002/reviews/${req.params.gameId}`
+    
+    baseURL: `http://18.220.38.54:3002/reviews/${req.params.gameId}`
   })
     .then((data) => { res.status(200).send(data.data); })
     .catch(() => { res.status(404).end(); });
