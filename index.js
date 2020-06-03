@@ -45,13 +45,13 @@ app.use(express.json());
 //     .catch(() => { res.status(404).end(); });
 // }); process.env.NR_PASS,
 
-// app.get('/cartapi/:gameId', (req, res) => {
-//   axios({
-//     baseURL: `http://18.221.207.9:3001/cartapi/${req.params.gameId}`
-//   })
-//     .then((data) => { res.status(200).send(data.data); })
-//     .catch(() => { res.status(404).end(); });
-// });
+app.get('/cartapi/:gameId', (req, res) => {
+  axios({
+    baseURL: `http://ec2-13-59-39-155.us-east-2.compute.amazonaws.com:3001/cartapi/${req.params.gameId}`
+  })
+    .then((data) => { res.status(200).send(data.data); })
+    .catch(() => { res.status(404).end(); });
+});
 
 app.get('/api/games/:gameId', (req, res) => {
   axios({
