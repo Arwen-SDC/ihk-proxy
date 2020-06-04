@@ -1,12 +1,13 @@
 require('newrelic');
 
 const express = require('express');
+const compression = require('compression');
 const axios = require('axios');
 const app = express();
 const PORT = 3100;
 
 
-
+app.use(compression());
 app.use('/games/:gameId', express.static(`${__dirname}/public`));
 app.use(express.json());
 
@@ -34,16 +35,6 @@ app.use(express.json());
 //     .then((data) => { res.status(200).send(data.data); })
 //     .catch(() => { res.status(404).end(); });
 // });
-
-// app.post('/reviews/:gameId', (req, res) => {
-//   axios({
-//     method: 'post',
-//     baseURL: `http://3.22.26.129/reviews/${req.params.gameId}`,
-//     data: req.body,
-//   })
-//     .then(() => { res.status(200).send(); })
-//     .catch(() => { res.status(404).end(); });
-// }); process.env.NR_PASS,
 
 app.get('/cartapi/:gameId', (req, res) => {
   axios({
